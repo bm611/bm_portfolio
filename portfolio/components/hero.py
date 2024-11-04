@@ -8,23 +8,16 @@ def hero_section():
                 "Hi, I'm Bharath", class_name="text-5xl tracking-wide md:text-7xl"
             ),
             rx.text(
-                "I love building full stack AI/ML applications.",
+                "I love building AI/ML applications.",
                 class_name="text-2xl leading-none",
             ),
             rx.vstack(
                 rx.box(
                     rx.text(
-                        "Data Science Engineer",
+                        "Machine Learning Engineer",
                         class_name="text-xl",
                     ),
-                    class_name="border-2 rounded-md p-1 md:px-2",
-                ),
-                rx.box(
-                    rx.text(
-                        "Full Stack Developer",
-                        class_name="text-xl",
-                    ),
-                    class_name="border-2 rounded-md p-1 md:px-2",
+                    class_name="border-2 rounded-lg shadow-lg p-1 md:px-2",
                 ),
                 class_name="md:flex-row md:gap-4 mt-4",
             ),

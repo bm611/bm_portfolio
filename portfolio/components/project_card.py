@@ -14,7 +14,7 @@ def project_card(
             rx.image(
                 src=image,
                 alt=title,
-                class_name="w-full h-full object-cover",
+                class_name="w-full h-full object-cover object-top",
             ),
             class_name="relative h-48 overflow-hidden",
         ),
@@ -65,7 +65,7 @@ def project_card(
                         class_name="text-inherit",
                     ),
                 ),
-                class_name="gap-4",
+                class_name="gap-8",
             ),
             class_name="p-6",
         ),
