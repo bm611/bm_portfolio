@@ -59,6 +59,7 @@ def timeline_v1():
                     ],
                 ),
                 position="relative",
+                class_name="animate-fade-in-up delay-1",
             ),
             rx.box(
                 wrapper(
@@ -76,6 +77,7 @@ def timeline_v1():
                     ],
                 ),
                 position="relative",
+                class_name="animate-fade-in-up delay-2",
             ),
             rx.box(
                 wrapper(
@@ -93,6 +95,7 @@ def timeline_v1():
                     ],
                 ),
                 position="relative",
+                class_name="animate-fade-in-up delay-3",
             ),
             width="100%",
             border_left=f"1px solid {rx.color('gray', 5)}",

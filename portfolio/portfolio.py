@@ -25,7 +25,7 @@ def project() -> rx.Component:
     projects = [
         {
             "title": "Cerebro - AI Quiz Generator",
-            "description": "An intelligent conversational agent built with advanced NLP capabilities for natural language understanding and generation. Features include context awareness, multiple conversation styles, and integration with external APIs.",
+            "description": "An AI-powered quiz generator that dynamically creates customized quizzes on any topic or subject area. Built using Google's Gemini API to analyze content and generate relevant questions.",
             "image": "/cerebro.jpg",
             "tags": ["Python", "Gemini", "TailwindCSS", "Reflex"],
             "index": 1,
@@ -34,7 +34,7 @@ def project() -> rx.Component:
         },
         {
             "title": "Byte-Bites - AI Recipe Generator",
-            "description": "An AI-powered recipe generator that creates unique and personalized recipes based on user preferences and available ingredients. Features intelligent ingredient substitution and dynamic recipe scaling.",
+            "description": "An AI-powered recipe generator that creates unique recipes based on user preferences and available ingredients. Features intelligent ingredient substitution and dynamic recipe scaling.",
             "image": "/recipe.jpg",
             "tags": ["Python", "Gemini", "Flux", "TailwindCSS", "Reflex"],
             "index": 2,
@@ -64,9 +64,9 @@ def project() -> rx.Component:
     return rx.container(
         rx.color_mode.button(position="bottom-right"),
         nav.nav_section(),
-        rx.center(
+        rx.box(
             *[project_card.project_card(**project) for project in projects],
-            class_name="w-full flex flex-col items-center justify-center gap-8 max-w-2xl mx-auto mb-20",
+            class_name="w-full grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20",
         ),
         size="4",
     )

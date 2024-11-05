@@ -15,7 +15,7 @@ def hero_section():
             rx.vstack(
                 rx.box(
                     rx.text(
-                        "AI/ML Full Stack Engineer",
+                        "Data Science Engineer",
                         class_name="text-xl",
                     ),
                     class_name="border-2 rounded-lg shadow-lg p-1 md:px-2",

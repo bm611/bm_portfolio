@@ -39,21 +39,22 @@ def project_card(
                     rx.box(
                         rx.text(
                             tag,
-                            class_name="text-md",
+                            class_name="text-sm font-medium",
                         ),
-                        class_name="border-2 p-1 px-2 rounded-md",
+                        class_name="bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-white px-3 py-1 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-md",
                     )
                     for tag in tags
                 ],
-                class_name="flex flex-wrap gap-2 mb-4",
+                class_name="flex flex-wrap gap-3 mb-6",
             ),
             rx.hstack(
                 rx.cond(
                     github_url is not None,
                     rx.link(
                         rx.hstack(
-                            rx.icon("github", class_name="cursor-pointer"),
-                            rx.text("Code", class_name="text-xl"),
+                            rx.icon("github", class_name="cursor-pointer", size=20),
+                            rx.text("Code", class_name="text-lg"),
+                            class_name="flex items-center",
                             spacing="1",
                         ),
                         href=github_url,
@@ -64,8 +65,11 @@ def project_card(
                     live_url is not None,
                     rx.link(
                         rx.hstack(
-                            rx.icon("external-link", class_name="cursor-pointer"),
-                            rx.text("Live Demo", class_name="text-xl"),
+                            rx.icon(
+                                "external-link", class_name="cursor-pointer", size=20
+                            ),
+                            rx.text("Demo", class_name="text-lg"),
+                            class_name="flex items-center",
                             spacing="1",
                         ),
                         href=live_url,
@@ -76,5 +80,5 @@ def project_card(
             ),
             class_name="p-6",
         ),
-        class_name=f"border-2 rounded-md overflow-hidden transform transition-all hover:scale-[1.02] {animation_class} {delay_class}",
+        class_name=f"border-2 border-slate-500 rounded-md overflow-hidden transform transition-all duration-300 hover:scale-110 hover:shadow-2xl {animation_class} {delay_class}",
     )
