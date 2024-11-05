@@ -46,10 +46,14 @@ def timeline_v1():
             rx.box(
                 wrapper(
                     "2023 - Present",
-                    "Web Designer & Web Developer",
+                    "Data Science Engineer",
                     [
                         rx.text(
-                            "The company has high expectations, and by using OKRs (Objectives and Key Results), there is a mutual understanding of expectations and performance. This framework not only aligns individual and team goals with the company's strategic vision but also fosters accountability and transparency throughout the organization.Regular check-ins and progress updates ensure that everyone stays on track, allowing for timely adjustments when necessary. The collaborative nature of setting OKRs encourages open communication, enabling team members to share insights and challenges.",
+                            "Motivity Labs (Google)",
+                            class_name="text-xl md:text-2xl font-semibold text-slate-400",
+                        ),
+                        rx.text(
+                            "Orchestrated PDF processing pipelines using Cloud Composer and Document AI for entity extraction, developed PII redaction workflows with spaCy and Google Cloud NLP, and built a self-service chatbot powered by Gemini LLM for automated query generation and insights delivery.",
                             class_name="text-xl md:text-2xl",
                         ),
                     ],
@@ -58,11 +62,15 @@ def timeline_v1():
             ),
             rx.box(
                 wrapper(
-                    "2021 - 2023",
-                    "Senior Software Engineer at Mailchimp",
+                    "2018 - 2023",
+                    "Data Scientist",
                     [
                         rx.text(
-                            "This is an excellent company and they reward their employees. It's becoming a big company but it's still private, so the culture is as good as it gets at 1,000+ employees if you ask me. Managers are still adapting to the growth I think, but everyone has to. Great place to work. ",
+                            "Thermo Fisher Scientific",
+                            class_name="text-xl md:text-2xl font-semibold text-slate-400",
+                        ),
+                        rx.text(
+                            "Developed multiple predictive models including BERT-based parts prediction and service ticket labeling, time series forecasting for service order volume, and propensity to buy models. Created ETL pipelines using PySpark and sparkSQL for data preparation and analysis. Successfully deployed recommendation systems and customer retention models at scale in production using Databricks.",
                             class_name="text-xl md:text-2xl",
                         ),
                     ],
@@ -71,11 +79,15 @@ def timeline_v1():
             ),
             rx.box(
                 wrapper(
-                    "2021 - 2021",
-                    "Junior Software Engineer at Slack",
+                    "2014 - 2016",
+                    "Systems Engineer",
                     [
                         rx.text(
-                            "Work in Slack is one of the beautiful experience I can do in my entire life. There are a lot of interesting thing to learn and manager respect your time and your personality.",
+                            "Tata Consultancy Services",
+                            class_name="text-xl md:text-2xl font-semibold text-slate-400",
+                        ),
+                        rx.text(
+                            "Managed SCCM application deployments and built ad-hoc reports using SQL Server Reporting Services. Coordinated with IT teams to streamline software distribution processes, automated patch management schedules, and developed custom reporting solutions for asset tracking and compliance monitoring.",
                             class_name="text-xl md:text-2xl",
                         ),
                     ],

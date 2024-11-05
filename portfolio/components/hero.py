@@ -9,13 +9,13 @@ def hero_section():
                 class_name="text-5xl tracking-wide md:text-7xl animate-fade-in-up",
             ),
             rx.text(
-                "I love building AI/ML applications.",
+                "I love building open-source applications.",
                 class_name="text-2xl leading-none animate-fade-in-up delay-1",
             ),
             rx.vstack(
                 rx.box(
                     rx.text(
-                        "Machine Learning Engineer",
+                        "AI/ML Full Stack Engineer",
                         class_name="text-xl",
                     ),
                     class_name="border-2 rounded-lg shadow-lg p-1 md:px-2",

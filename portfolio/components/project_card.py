@@ -6,7 +6,7 @@ def project_card(
     description: str,
     image: str,
     tags: list[str],
-    index: int,  # Add this parameter
+    index: int,
     github_url: str | None = None,
     live_url: str | None = None,
 ) -> rx.Component:
