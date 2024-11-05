@@ -50,7 +50,7 @@ def timeline_v1():
                     [
                         rx.text(
                             "The company has high expectations, and by using OKRs (Objectives and Key Results), there is a mutual understanding of expectations and performance. This framework not only aligns individual and team goals with the company's strategic vision but also fosters accountability and transparency throughout the organization.Regular check-ins and progress updates ensure that everyone stays on track, allowing for timely adjustments when necessary. The collaborative nature of setting OKRs encourages open communication, enabling team members to share insights and challenges.",
-                            class_name="text-2xl",
+                            class_name="text-xl md:text-2xl",
                         ),
                     ],
                 ),
@@ -63,7 +63,7 @@ def timeline_v1():
                     [
                         rx.text(
                             "This is an excellent company and they reward their employees. It's becoming a big company but it's still private, so the culture is as good as it gets at 1,000+ employees if you ask me. Managers are still adapting to the growth I think, but everyone has to. Great place to work. ",
-                            class_name="text-2xl",
+                            class_name="text-xl md:text-2xl",
                         ),
                     ],
                 ),
@@ -76,7 +76,7 @@ def timeline_v1():
                     [
                         rx.text(
                             "Work in Slack is one of the beautiful experience I can do in my entire life. There are a lot of interesting thing to learn and manager respect your time and your personality.",
-                            class_name="text-2xl",
+                            class_name="text-xl md:text-2xl",
                         ),
                     ],
                 ),

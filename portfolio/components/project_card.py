@@ -6,9 +6,16 @@ def project_card(
     description: str,
     image: str,
     tags: list[str],
+    index: int,  # Add this parameter
     github_url: str | None = None,
     live_url: str | None = None,
 ) -> rx.Component:
+    # Determine animation class based on index
+    animation_class = (
+        "animate-slide-in-left" if index % 2 == 0 else "animate-slide-in-right"
+    )
+    delay_class = f"delay-{min(index + 1, 4)}"  # Limit delay classes to 4
+
     return rx.box(
         rx.box(
             rx.image(
@@ -69,5 +76,5 @@ def project_card(
             ),
             class_name="p-6",
         ),
-        class_name="border-2 rounded-md overflow-hidden transform transition-all hover:scale-[1.02]",
+        class_name=f"border-2 rounded-md overflow-hidden transform transition-all hover:scale-[1.02] {animation_class} {delay_class}",
     )

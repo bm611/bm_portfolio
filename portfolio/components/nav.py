@@ -25,6 +25,6 @@ def nav_section() -> rx.Component:
                 )
                 for text, route, href in nav_items
             ],
-            class_name="flex justify-around items-center mb-20 mt-10 gap-12 md:gap-32",
+            class_name="flex justify-around items-center mb-20 mt-10 gap-12 md:gap-32 animate-fade-in-down delay-1",
         ),
     )

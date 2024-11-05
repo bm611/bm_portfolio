@@ -22,35 +22,51 @@ def index() -> rx.Component:
 # PROJECTS
 @rx.page(route="/projects", title="Projects")
 def project() -> rx.Component:
+    projects = [
+        {
+            "title": "Cerebro - AI Quiz Generator",
+            "description": "An intelligent conversational agent built with advanced NLP capabilities for natural language understanding and generation. Features include context awareness, multiple conversation styles, and integration with external APIs.",
+            "image": "/cerebro.jpg",
+            "tags": ["Python", "Gemini", "TailwindCSS", "Reflex"],
+            "index": 1,
+            "github_url": "https://github.com/bm611/cerebro",
+            "live_url": "https://cerebro.reflex.run",
+        },
+        {
+            "title": "Byte-Bites - AI Recipe Generator",
+            "description": "An AI-powered recipe generator that creates unique and personalized recipes based on user preferences and available ingredients. Features intelligent ingredient substitution and dynamic recipe scaling.",
+            "image": "/recipe.jpg",
+            "tags": ["Python", "Gemini", "Flux", "TailwindCSS", "Reflex"],
+            "index": 2,
+            "github_url": "https://github.com/bm611/byte-bites",
+            "live_url": "https://recipe.reflex.run",
+        },
+        {
+            "title": "Web Search",
+            "description": "An advanced web search application integrating Brave Search API for real-time data retrieval and Gemini AI for enhanced result analysis and summarization. Features include comprehensive search results, AI-powered content interpretation, and efficient data processing.",
+            "image": "/search.jpg",
+            "tags": ["Python", "Gemini", "Brave", "Reflex"],
+            "index": 3,
+            "github_url": "https://github.com/bm611/aisearch",
+            "live_url": "https://aisearch.reflex.com",
+        },
+        {
+            "title": "Portfolio Website",
+            "description": "A modern, responsive portfolio website built with Reflex and Python. Features include dark mode support, responsive design, and dynamic content loading. Showcases projects and professional experience.",
+            "image": "/portfolio.jpg",
+            "tags": ["Python", "Reflex", "TailwindCSS"],
+            "index": 3,
+            "github_url": "https://github.com/bm611/bm_portfolio",
+            "live_url": "https://bm.reflex.run",
+        },
+    ]
+
     return rx.container(
         rx.color_mode.button(position="bottom-right"),
         nav.nav_section(),
-        rx.box(
-            project_card.project_card(
-                title="AI Chatbot Assistant",
-                description="An intelligent conversational agent built with advanced NLP capabilities for natural language understanding and generation. Features include context awareness, multiple conversation styles, and integration with external APIs.",
-                image="/cerebro.jpg",
-                tags=["Python", "NLP", "Transformers", "FastAPI"],
-                github_url="https://github.com/username/repo",
-                live_url="https://example.com",
-            ),
-            project_card.project_card(
-                title="Code Analysis Tool",
-                description="A static code analysis tool that helps developers identify potential bugs, security vulnerabilities, and maintainability issues in their codebase. Supports multiple programming languages and integrates with CI/CD pipelines.",
-                image="/recipe.jpg",
-                tags=["Python", "AST", "Docker", "Jenkins"],
-                github_url="https://github.com/username/repo",
-                live_url="https://example.com",
-            ),
-            project_card.project_card(
-                title="Portfolio Website",
-                description="A modern, responsive portfolio website built with Reflex and Python. Features include dark mode support, responsive design, and dynamic content loading. Showcases projects and professional experience.",
-                image="/search.jpg",
-                tags=["Python", "Reflex", "TailwindCSS", "TypeScript"],
-                github_url="https://github.com/username/repo",
-                live_url="https://example.com",
-            ),
-            class_name="w-full flex flex-col gap-8 max-w-2xl mx-auto mb-20",
+        rx.center(
+            *[project_card.project_card(**project) for project in projects],
+            class_name="w-full flex flex-col items-center justify-center gap-8 max-w-2xl mx-auto mb-20",
         ),
         size="4",
     )
@@ -74,5 +90,5 @@ style = {
 
 app = rx.App(
     style=style,
-    stylesheets=["/fonts/font.css"],
+    stylesheets=["/fonts/font.css", "/animate.css"],
 )
