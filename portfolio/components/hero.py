@@ -6,21 +6,15 @@ def hero_section():
         rx.vstack(
             rx.heading(
                 "Hi, I'm Bharath",
-                class_name="text-5xl tracking-wide md:text-7xl animate-fade-in-up",
+                class_name="text-5xl tracking-wide md:text-8xl animate-fade-in-up",
             ),
             rx.text(
                 "I love building open-source applications.",
-                class_name="text-2xl leading-none animate-fade-in-up delay-1",
+                class_name="text-2xl md:text-4xl leading-none animate-fade-in-up delay-1",
             ),
-            rx.vstack(
-                rx.box(
-                    rx.text(
-                        "Data Science Engineer",
-                        class_name="text-xl",
-                    ),
-                    class_name="border-2 rounded-lg shadow-lg p-1 md:px-2",
-                ),
-                class_name="md:flex-row md:gap-4 mt-4 animate-fade-in-up delay-2",
+            rx.text(
+                "Data Science Engineer",
+                class_name="text-2xl md:text-4xl mt-4 animate-fade-in-up delay-2 font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent hover:from-blue-500 hover:to-teal-500 transition-all duration-500 tracking-wide",
             ),
             rx.hstack(
                 rx.link(
