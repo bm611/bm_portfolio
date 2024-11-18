@@ -51,13 +51,13 @@ def project() -> rx.Component:
             "live_url": "https://aisearch.reflex.com",
         },
         {
-            "title": "Portfolio Website",
-            "description": "A modern, responsive portfolio website built with Reflex and Python. Features include dark mode support, responsive design, and dynamic content loading. Showcases projects and professional experience.",
-            "image": "/portfolio.jpg",
-            "tags": ["Python", "Reflex", "TailwindCSS"],
+            "title": "Chat-UI",
+            "description": "A modern chat interface built with Reflex that allows you to interact with various AI models through different providers or run completely locally using open-source models.",
+            "image": "/chat.jpg",
+            "tags": ["Python", "Reflex", "TailwindCSS", "Ollama", "OpenAI"],
             "index": 3,
-            "github_url": "https://github.com/bm611/bm_portfolio",
-            "live_url": "https://bm.reflex.run",
+            "github_url": "https://github.com/bm611/chat-ui",
+            "live_url": "",
         },
     ]
 
