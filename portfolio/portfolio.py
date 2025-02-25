@@ -85,8 +85,15 @@ def work_page() -> rx.Component:
 
 style = {
     "font_family": "Goudy",
+    "background_color": "rgb(255, 255, 240)",
+    "color": "#000",
 }
 
+# Let's add our neo-brutalist style directly to the style object
+style.update({
+    "accent_color": "rgb(255, 50, 50)",
+    "border_radius": "0px",
+})
 
 app = rx.App(
     style=style,
