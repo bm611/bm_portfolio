@@ -175,7 +175,7 @@ def timeline_v1():
                 width="100%",
             ),
             width="100%",
-            spacing="10",
+            spacing="9",
             position="relative",
             padding_left=["10px", "15px", "20px"],
         ),
