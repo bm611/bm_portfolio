@@ -1,6 +1,27 @@
 import reflex as rx
 
 
+def skill_tag(skill: str):
+    return rx.box(
+        rx.text(
+            skill,
+            font_weight="bold",
+            color="#1E293B",  # Dark slate
+        ),
+        padding="4px 10px",
+        border_radius="4px",
+        background="rgba(255, 255, 255, 0.7)",
+        border="2px solid #334155",  # Slate
+        margin_right="8px",
+        margin_bottom="8px",
+        transition="all 0.2s ease",
+        _hover={
+            "transform": "translateY(-2px)",
+            "box_shadow": "2px 2px 0px rgba(30, 41, 59, 0.5)",
+        },
+    )
+
+
 def project_card(
     title: str,
     description: str,
@@ -12,93 +33,136 @@ def project_card(
 ) -> rx.Component:
     # Determine animation class based on index
     animation_class = (
-        "animate-slide-in-left" if index % 2 == 0 else "animate-slide-in-right"
+        "animate-fade-in-up" if index % 2 == 0 else "animate-fade-in-up"
     )
     delay_class = f"delay-{min(index + 1, 4)}"  # Limit delay classes to 4
     
-    # Rotation for neo-brutalist look - alternating for each card
-    rotation = "rotate-[2deg]" if index % 2 == 0 else "rotate-[-1deg]"
-    
-    # Background colors for neo-brutalist style
-    bg_colors = ["rgb(255, 235, 130)", "rgb(130, 230, 255)", "rgb(255, 130, 200)", "rgb(180, 230, 180)"]
+    # Neutral background colors
+    bg_colors = ["#F1F5F9", "#E2E8F0", "#F8FAFC", "#EFF6FF"]
     bg_color = bg_colors[index % len(bg_colors)]
-
+    
     return rx.box(
-        rx.box(
-            rx.image(
-                src=image,
-                alt=title,
-                class_name="w-full h-full object-cover object-top",
-                border_bottom="5px solid black",
-            ),
-            class_name="relative h-48 overflow-hidden",
-        ),
-        rx.box(
-            rx.heading(
-                title,
-                class_name="text-2xl font-black tracking-tight mb-4 uppercase",
-                color="black",
-                style={"letter-spacing": "-0.03em"},
-            ),
-            rx.text(
-                description,
-                class_name="mb-6 text-xl font-medium",
-                color="black",
-            ),
-            rx.flex(
-                *[
-                    rx.box(
-                        rx.text(
-                            tag,
-                            class_name="text-sm font-bold",
-                            color="white",
-                        ),
-                        background="black",
-                        border="2px solid black",
-                        padding="0.3em 0.7em",
-                        transform=f"rotate({(index % 3) - 1}deg)",
-                        transition="all 0.2s ease-in-out",
-                        _hover={"transform": f"rotate({-(index % 3) + 1}deg) scale(1.05)"},
-                    )
-                    for tag in tags
-                ],
-                class_name="flex flex-wrap gap-3 mb-8",
-            ),
-            rx.hstack(
-                rx.cond(
-                    github_url is not None,
-                    rx.link(
-                        rx.hstack(
-                            rx.icon("github", class_name="cursor-pointer", size=22),
-                            rx.text("CODE", class_name="text-lg font-bold"),
-                            class_name="flex items-center",
-                            spacing="1",
-                        ),
-                        href=github_url,
-                        class_name="text-white bg-black px-4 py-2 border-2 border-black hover:bg-[rgb(255,50,50)] hover:text-black transition-all duration-300",
-                    ),
+        rx.vstack(
+            # Image container with larger size
+            rx.box(
+                rx.image(
+                    src=image,
+                    alt=title,
+                    class_name="w-full h-full object-cover transition-all duration-500 hover:scale-105",
                 ),
-                rx.cond(
-                    live_url is not None,
-                    rx.link(
-                        rx.hstack(
-                            rx.icon(
-                                "external-link", class_name="cursor-pointer", size=22
+                class_name="relative w-full h-64 md:h-72 lg:h-80 overflow-hidden rounded-t-lg",
+                border_bottom="3px solid #334155",
+            ),
+            
+            # Content container
+            rx.vstack(
+                # Title
+                rx.heading(
+                    title,
+                    class_name="text-xl md:text-2xl font-black tracking-tight uppercase",
+                    color="#1E293B",
+                    style={"letter-spacing": "-0.03em"},
+                    margin_bottom="0.75rem",
+                    align_self="flex-start",
+                ),
+                
+                # Description
+                rx.text(
+                    description,
+                    class_name="text-base md:text-lg font-medium",
+                    color="#334155",
+                    margin_bottom="1rem",
+                ),
+                
+                # Tags
+                rx.box(
+                    rx.flex(
+                        *[skill_tag(tag) for tag in tags],
+                        wrap="wrap",
+                        width="100%",
+                        margin_bottom="1.25rem",
+                    ),
+                    width="100%",
+                ),
+                
+                # Buttons
+                rx.hstack(
+                    rx.cond(
+                        github_url is not None,
+                        rx.link(
+                            rx.hstack(
+                                rx.icon("github", class_name="cursor-pointer", size=20),
+                                rx.text(
+                                    "CODE", 
+                                    class_name="text-sm md:text-base font-bold",
+                                    color="#1E293B",
+                                ),
+                                spacing="1",
+                                align_items="center",
                             ),
-                            rx.text("DEMO", class_name="text-lg font-bold"),
-                            class_name="flex items-center",
-                            spacing="1",
+                            href=github_url,
+                            is_external=True,
+                            padding="4px 10px",
+                            border_radius="4px",
+                            background="rgba(255, 255, 255, 0.7)",
+                            border="2px solid #334155",
+                            transition="all 0.2s ease",
+                            _hover={
+                                "transform": "translateY(-2px)",
+                                "box_shadow": "2px 2px 0px rgba(30, 41, 59, 0.5)",
+                            },
                         ),
-                        href=live_url,
-                        class_name="text-white bg-black px-4 py-2 border-2 border-black hover:bg-[rgb(50,50,255)] hover:text-black transition-all duration-300",
                     ),
+                    rx.cond(
+                        live_url is not None and live_url != "",
+                        rx.link(
+                            rx.hstack(
+                                rx.icon(
+                                    "external-link", class_name="cursor-pointer", size=20
+                                ),
+                                rx.text(
+                                    "DEMO", 
+                                    class_name="text-sm md:text-base font-bold",
+                                    color="#1E293B",
+                                ),
+                                spacing="1",
+                                align_items="center",
+                            ),
+                            href=live_url,
+                            is_external=True,
+                            padding="4px 10px",
+                            border_radius="4px",
+                            background="rgba(255, 255, 255, 0.7)",
+                            border="2px solid #334155",
+                            transition="all 0.2s ease",
+                            _hover={
+                                "transform": "translateY(-2px)",
+                                "box_shadow": "2px 2px 0px rgba(30, 41, 59, 0.5)",
+                            },
+                        ),
+                    ),
+                    spacing="4",
+                    align_self="flex-start",
                 ),
-                class_name="gap-8",
+                
+                width="100%",
+                align_items="flex-start",
+                padding="1.25rem",
+                background=bg_color,
+                class_name="rounded-b-lg",
             ),
-            class_name="p-6 bg-[" + bg_color + "]",
+            
+            spacing="0",
+            width="100%",
+            align_items="stretch",
         ),
-        class_name=f"border-[4px] border-black overflow-hidden transform transition-all duration-300 hover:scale-105 {rotation} hover:shadow-[12px_12px_0px_rgba(0,0,0,0.8)] {animation_class} {delay_class}",
-        box_shadow="8px 8px 0px rgba(0, 0, 0, 0.8)",
-        max_width="500px",
-        margin="0 auto",
+        class_name=f"overflow-hidden transform transition-all duration-300 hover:translate-y-[-5px] {animation_class} {delay_class}",
+        box_shadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        _hover={
+            "box_shadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        },
+        border="1px solid #E2E8F0",
+        border_radius="lg",
+        width="100%",
+        overflow="hidden",
     )
